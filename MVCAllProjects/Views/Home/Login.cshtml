@@ -1,0 +1,69 @@
+﻿@model MVCAllProjects.Models.Login
+<head>
+    <style>
+        #form {
+            padding-top: 30px;
+            background-color: blueviolet;
+            border-radius: 8px;
+        }
+
+        #user {
+            text-align: center;
+            color: firebrick;
+            font-weight:bold;
+        }
+
+        #tcenter {
+            margin: 0 auto;
+            border: 2px solid purple;
+            height: 300px;
+            width: 600px;
+            padding-top: 20px;
+            padding-left: 70px;
+            background-color: lightblue;
+            color: black;
+        }
+
+        .myspace {
+            padding: 10px;
+        }
+
+        #btn {
+            margin-left: 10px;
+            color: darkblue;
+            background-color: lightgreen;
+            padding: 5px;
+            padding-left: 8px;
+            border-radius: 8px;
+            font-size: large;
+        }
+        .field-validation-error{
+            color:red;
+        }
+    </style>
+</head>
+<body id="form">
+    @using (Html.BeginForm("LoginCheck", "Home", FormMethod.Post))
+    {
+        <h2 id="user">Login</h2>
+        <div id="tcenter">
+            <div class="myspace">
+                @Html.LabelFor(model => model.Username)
+                @Html.TextBoxFor(model => model.Username)
+                @Html.ValidationMessageFor(model => model.Username)<br /><br />
+            </div>
+                <div class="myspace">
+                    @Html.LabelFor(model => model.Password)
+                    @Html.PasswordFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password)<br /><br />
+                </div>
+            <div class="myspace">
+                <input type="submit" value="Login" id="btn" />
+                <button type="button" id="btn" onclick="location.href='@Url.Action("UserRegister", "UserRegistration")'">
+                    New User Registration
+                </button>
+            </div>
+            </div>
+    }
+</body>
+

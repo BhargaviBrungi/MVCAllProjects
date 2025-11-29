@@ -1,0 +1,87 @@
+﻿@model MVCAllProjects.Models.Hotel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        #form {
+            background-color: aquamarine;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        #user {
+            text-align: center;
+            color: purple;
+        }
+
+        #tcenter {
+            margin: 0 auto;
+            border: 2px solid purple;
+            height: 350px;
+            width: 650px;
+            padding-top: 10px;
+            padding-left: 25px;
+            background-color: lightpink;
+            color: black;
+        }
+
+        #myspace {
+            padding: 15px 30px;
+            color: darkblue;
+            font-size: large;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body id="form">
+    <div>
+        <h4 id="user">User Details</h4>
+        <hr />
+        <dl class="dl-horizontal" id="tcenter">
+            <dt id="myspace">
+                @Html.DisplayNameFor(model => model.Username)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Username)
+            </dd>
+    
+            <dt id="myspace">
+                @Html.DisplayNameFor(model => model.RoomType)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.RoomType)
+            </dd>
+    
+            <dt id="myspace">
+                @Html.DisplayNameFor(model => model.Amenities)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Amenities)
+            </dd>
+    
+            <dt id="myspace">
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TotalCost)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

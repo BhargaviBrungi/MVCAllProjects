@@ -1,0 +1,131 @@
+﻿@model MVCAllProjects.Models.UserRegistration
+<html>
+<head>
+    <style>
+        #form{
+            padding-top:20px;
+            background-color:lightgreen;
+        }
+        #user{
+            text-align:center;
+            color:purple;
+        }
+        #tcenter{
+            margin:0 auto;
+            border:2px solid purple;
+            height:620px;
+            width:650px;
+            padding-top:10px;
+            padding-left:40px;
+            background-color:lightsalmon;
+            color:black;
+        }
+        .myspace{
+            padding:10px 30px;
+        }
+        #btn{
+            margin-left:180px;
+            color:darkblue;
+            background-color:lightblue;
+            padding:7px;
+            border-radius:5px;
+        }
+        .field-validation-error{
+            color:red;
+        }
+    </style>
+</head>
+@using (Html.BeginForm("UserRegister", "UserRegistration", FormMethod.Post))
+{
+    <body id="form">
+        <h2 id="user">User Registration Form</h2>
+       <table id="tcenter">
+           <tr>
+               <td class="myspace">
+                   @Html.LabelFor(model => model.Id, "Enter Id")
+                   @Html.TextBoxFor(model => model.Id, new { @class = "input-textbox" })
+                   @Html.ValidationMessageFor(model => model.Id)
+               </td>
+           </tr>
+           <tr>
+               <td class="myspace">
+                   @Html.LabelFor(model => model.Firstname, "Enter Firstname")
+                   @Html.TextBoxFor(model => model.Firstname, new { @class = "input-textbox" })
+                   @Html.ValidationMessageFor(model => model.Firstname)
+               </td>
+           </tr>
+           <tr>
+               <td class="myspace">
+                   @Html.LabelFor(model => model.Lastname, "Enter Lastname")
+                   @Html.TextBoxFor(model => model.Lastname, new { @class = "input-textbox" })
+                   @Html.ValidationMessageFor(model => model.Lastname)
+               </td>
+           </tr>
+           <tr>
+               <td class="myspace">
+                   @Html.LabelFor(model => model.Username, "Enter Username")
+                   @Html.TextBoxFor(model => model.Username, new { @class = "input-textbox" })
+                   @Html.ValidationMessageFor(model => model.Username)
+               </td>
+           </tr>
+           <tr>
+               <td class="myspace">
+                   @Html.LabelFor(model => model.Password, "Enter Password")
+                   @Html.PasswordFor(model => model.Password, new { @class = "input-textbox" })
+                   @Html.ValidationMessageFor(model => model.Password)
+               </td>
+           </tr>
+           <tr>
+               <td class="myspace">
+                   @Html.LabelFor(model => model.ConfirmPassword, "Enter ConfirmPassword")
+                   @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "input-textbox" })
+                   @Html.ValidationMessageFor(model => model.ConfirmPassword)
+               </td>
+           </tr>
+           <tr>
+               <td class="myspace">
+                   @Html.LabelFor(model => model.Email, "Enter Email Id")
+                   @Html.TextBoxFor(model => model.Email, new { @class = "input-textbox" })
+                   @Html.ValidationMessageFor(model => model.Email)
+               </td>
+           </tr>
+           <tr>
+               <td class="myspace">
+                   @Html.LabelFor(model => model.Phone, "Enter Phone Number")
+                   @Html.TextBoxFor(model => model.Phone, new { @class = "input-textbox" })
+                   @Html.ValidationMessageFor(model => model.Phone)
+               </td>
+           </tr>
+           <tr>
+               <td class="myspace">
+                   @Html.LabelFor(model => model.Age, "Enter Age")
+                   @Html.TextBoxFor(model => model.Age, new { @class = "input-textbox" })
+                   @Html.ValidationMessageFor(model => model.Age)
+               </td>
+           </tr>
+           <tr>
+               <td class="myspace">
+                   @Html.Label("Gender")
+                   @Html.RadioButtonFor(model => model.Gender, "Male") Male
+                   @Html.RadioButtonFor(model => model.Gender, "Female") Female
+                   @Html.RadioButtonFor(model => model.Gender, "Other") Other
+                   @Html.ValidationMessageFor(model => model.Gender)
+               </td>
+           </tr>
+           <tr>
+               <td class="myspace">
+                   @Html.Label("Country")
+                   @Html.DropDownListFor(model => model.Country, TempData["SelectCountry"] as List<SelectListItem>, "Select Country")<br /><br />
+                   @Html.ValidationMessageFor(model => model.Country)
+               </td>
+           </tr>
+           <tr>
+               <td class="myspace">
+                   <input type="submit" value="Register" id="btn" />
+               </td>
+           </tr>
+       </table>
+        @TempData["SuccessMessage"]
+    </body>
+}
+</html>

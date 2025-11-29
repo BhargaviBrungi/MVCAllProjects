@@ -1,0 +1,95 @@
+﻿@model MVCAllProjects.Models.Hotel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+    <style>
+        #form {
+            background-color: aquamarine;
+            text-align: center;
+            padding-top: 10px;
+        }
+        #user {
+            text-align: center;
+            color: purple;
+        }
+        #tcenter {
+            margin: 0 auto;
+            border: 2px solid purple;
+            height: 400px;
+            width: 650px;
+            padding-top: 10px;
+            padding-left: 25px;
+            background-color: lightpink;
+            color: black;
+        }
+        #myspace {
+            padding: 15px 30px;
+            color: darkblue;
+            font-size: large;
+        }
+    </style>
+</head>
+<body id="form">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal" id="tcenter">
+            <h4 id="user">Edit Hotel Registration Form</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+    
+            <div class="form-group" id="myspace">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group" id="myspace">
+                @Html.LabelFor(model => model.RoomType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RoomType, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RoomType, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group" id="myspace">
+                @Html.LabelFor(model => model.Amenities, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Amenities, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Amenities, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group" id="myspace">
+                @Html.LabelFor(model => model.TotalCost, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TotalCost, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TotalCost, "", new { @class = "text-danger" })
+                </div>
+            </div>
+    
+            <div class="form-group" id="myspace">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

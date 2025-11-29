@@ -1,0 +1,16 @@
+﻿@model MVCAllProjects.Models.QRCodeModel
+@using (Html.BeginForm())
+{
+    @Html.Label("QRCodeText")
+    @Html.TextBoxFor(model => model.QRCodeText)
+    <br />
+    <br />
+    <input type="submit" value="Create" class="btn btn-default" />
+    @*Image display code*@
+    if (!string.IsNullOrEmpty(Model.QRImageUrl))
+    {
+        <div>
+            <img height="250" width="250" src="@Model.QRImageUrl" />
+        </div>
+    }
+}

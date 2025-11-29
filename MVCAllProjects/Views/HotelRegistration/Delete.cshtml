@@ -1,0 +1,92 @@
+﻿@model MVCAllProjects.Models.Hotel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    #form {
+        background-color: aquamarine;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    #user {
+        text-align: center;
+        color: purple;
+    }
+
+    #tcenter {
+        margin: 0 auto;
+        border: 2px solid purple;
+        height: 400px;
+        width: 650px;
+        padding-top: 10px;
+        padding-left: 25px;
+        background-color: lightpink;
+        color: black;
+    }
+
+    #myspace {
+        padding: 20px 30px;
+        color: darkblue;
+        font-size: large;
+    }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body id="form">
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4 id="user">Delete Customer</h4>
+        <hr />
+        <dl class="dl-horizontal" id="tcenter">
+            <dt id="myspace">
+                @Html.DisplayNameFor(model => model.Username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Username)
+            </dd>
+
+            <dt id="myspace">
+                @Html.DisplayNameFor(model => model.RoomType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoomType)
+            </dd>
+
+            <dt id="myspace">
+                @Html.DisplayNameFor(model => model.Amenities)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Amenities)
+            </dd>
+
+            <dt id="myspace">
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalCost)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>
